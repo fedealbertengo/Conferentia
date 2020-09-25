@@ -11,4 +11,4 @@ Datos Login:
 		Usuario: guest
 		Constraseña: guest
 
-Repositorio de Github: https://github.com/fedealbertengo/Conferentia--Fede-
+Repositorio de Github: https://github.com/fedealbertengo/Conferentia
