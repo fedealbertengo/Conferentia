@@ -1,0 +1,13 @@
+<ion-tabs *ngIf="!userLoginEnabled || usuarioLogeado" [selectedIndex]="mySelectedIndex">
+
+  <!-- Los componentes que no desean mostrarse en la tab bar deben tener el atributo 'show' con el valor false,
+  para no perder la visualización de la tab bar al fondo, excepto que este efecto sea deseado -->
+
+  <ng-container *ngFor="let tabName of tabRootsList">
+    <ion-tab [root]="tabRoots[tabName].reference"
+             [tabIcon]="tabRoots[tabName].icon"
+             [show]="tabRoots[tabName].isDisplayedInTabBar">
+    </ion-tab>
+  </ng-container>
+
+</ion-tabs>

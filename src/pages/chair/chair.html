@@ -1,0 +1,47 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Chair'"></header-bar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-list>
+
+      <ion-item color="none" id="nombre-disertante">
+        <ion-avatar item-left>
+          <img [src]="chair.imgString" />
+        </ion-avatar>
+        <h2><b>{{(chair.nombreCortesia | translate) + ' ' + chair.nombreCompleto}}</b></h2>
+        <p>{{chair.institucion}}</p>
+        <p>{{chair.areaDeRevision.nombre | translate}}</p>
+        <p>{{chair.email}}</p>
+      </ion-item>
+
+      <ion-item id="curriculum-chair">
+        <div class="show-list-numbers-and-dots">
+          <p>
+            {{chair.curriculum | translate}}
+          </p>
+        </div>
+      </ion-item>
+
+      <ion-item-divider color="light">
+        {{'Coordinated Session'}}
+      </ion-item-divider>
+
+      <ng-container *ngIf="chair.areaDeRevision">
+        <!--<ion-item [id]="'main-card-' + areaDeRevision.idAreaTematica" color="none" on-click="goToAreaDeRevision(actividad.id)" >-->
+        <ion-item [id]="'main-card-' + chair.areaDeRevision.idAreaTematica" color="none">
+          <ion-thumbnail item-left>
+            <img [src]="chair.areaDeRevision.imgString"/>
+          </ion-thumbnail>
+          <h2> {{chair.areaDeRevision.nombre | translate}} </h2>
+          <!--<div>-->
+            <!--<ion-badge [ngStyle]="{'background-color': actividad.tipoActividad.backgroundColor, 'color': actividad.tipoActividad.color}" item-end>{{actividad.tipoActividad.nombre}}</ion-badge>-->
+          <!--</div>-->
+        </ion-item>
+      </ng-container>
+
+    </ion-list>
+  </ion-card>
+</ion-content>

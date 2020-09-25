@@ -1,0 +1,10 @@
+<ng-container *ngIf="sponsorService.sponsors && sponsorService.sponsors.length">
+  <!--<h1 id="organized-by">{{('Organized by' | translate) + ':'}}</h1>-->
+  <h1 id="organized-by">{{('Sponsored by' | translate) + ':'}}</h1>
+
+  <ion-slides #slides autoplay="3000" loop="true" speed="750">
+    <ion-slide *ngFor="let sponsor of sponsorService.sponsors">
+      <img [src]="imagePath + sponsor.imgSource + '.png'" (click)="navigateToSponsors(sponsor)"/>
+    </ion-slide>
+  </ion-slides>
+</ng-container>

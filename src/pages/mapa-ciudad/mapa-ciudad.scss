@@ -1,0 +1,168 @@
+page-mapa-ciudad {
+
+  .segment-button{
+    background-color: white;
+    color: gray;
+    border-color: gray;
+    &.segment-activated{
+      color: white;
+      background-color: $primary;
+    }
+  }
+
+  #map {
+    width: 600px;
+    height: 400px;
+  }
+
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+    border-color: white;
+    color: white;
+  }
+
+  .segment-md .segment-button{
+    border-color: lightgray;
+    color: lightgray;
+  }
+
+  #footerVista{
+    padding: 8px;
+    background-color: #F8F8F8;
+  }
+
+  .searchbar-md, .searchbar-wp{
+    padding: 0;
+  }
+
+  .filter-buttons{
+    text-align: center;
+    margin-bottom: 5px;
+
+    #boton-rubro{
+      width: 100%;
+    }
+
+    button{
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 0.45em;
+      &:first-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    //Modificaciones al menú desplegable inferior de filtros para pantallas reducidas
+  }
+
+  ion-grid {
+    height: 100%;
+    justify-content: center;
+  }
+
+  //.loader {
+  //  border: 16px solid #f3f3f3; /* Light grey */
+  //  border-top: 16px solid #F4511E; /* Blue */
+  //  border-radius: 50%;
+  //  width: 50px;
+  //  height: 50px;
+  //  animation: spin 2s linear infinite;
+  //}
+  //
+  //@keyframes spin {
+  //  0% { transform: rotate(0deg); }
+  //  100% { transform: rotate(360deg); }
+  //}
+
+  .loader {
+    color: $primary;
+    font-size: 90px;
+    text-indent: -9999em;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: 72px auto;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+    animation: load6 1.7s infinite ease, round 1.7s infinite ease;
+  }
+  @-webkit-keyframes load6 {
+    0% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+  }
+  @keyframes load6 {
+    0% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    5%,
+    95% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+    10%,
+    59% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
+    }
+    20% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
+    }
+    38% {
+      box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
+    }
+    100% {
+      box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+    }
+  }
+  @-webkit-keyframes round {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes round {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  .loaderMsg{
+    margin: 0 auto;
+    margin-bottom: 20px;
+    color: #ff9d00;
+  }
+
+}

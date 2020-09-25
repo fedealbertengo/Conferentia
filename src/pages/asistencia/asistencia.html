@@ -1,0 +1,106 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Assistance'"></header-bar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngIf="usuarioLogeado && usuarioLogeado.is_organizer === 2">
+      <div class="show-list-numbers-and-dots">
+        <p>
+          {{("You're logged in as the guest user" | translate) + '. ' + ('To access the assistance module, please login with your assigned username and password' | translate) + '.'}}
+        </p>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <!-- FIXME: Cambiar esto, para emprolijar el uso del usuario Guest -->
+
+  <ng-container *ngIf="usuarioLogeado && usuarioLogeado.is_organizer !== 2">
+    <ion-list margin-bottom>
+      <ion-item>
+        <p>
+          <strong>{{('Full Name' | translate) + ': '}} </strong>
+          {{usuarioLogeado.first_name + ' ' + usuarioLogeado.last_name}}
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>
+          <strong>{{('Username' | translate) + ': '}} </strong>
+          {{usuarioLogeado.user_name}}
+        </p>
+      </ion-item>
+    </ion-list>
+
+    <ng-container
+      *ngIf="usuarioLogeado && (!usuarioLogeado.is_organizer || !(usuarioLogeado.is_organizer))"
+    >
+      <ion-list margin-bottom>
+        <ion-card *ngIf="createdCode">
+          <!--<ngx-qrcode id="qrcode" [qrc-value]="createdCode"></ngx-qrcode>-->
+          <qr-code
+            [value]="createdCode"
+            [size]="280"
+          ></qr-code>
+          <!--<img src="{{createdCode}}">-->
+        </ion-card>
+      </ion-list>
+
+      <ion-list>
+        <ion-item text-wrap>
+          <div class="show-list-numbers-and-dots">
+            <p margin-bottom *ngIf="usuarioLogeado.registration_id">
+              <strong>{{('Registration ID' | translate) + ': '}}</strong>
+              {{usuarioLogeado.registration_id}}
+            </p>
+            <p style="margin-top:0px;color:#000000;">
+              <!--Cuando se te lo solicite, acercá este código QR a la entrada de cada actividad para que un organizador valide tu asistencia.-->
+              {{'When asked by an organizer or assistant, hand this QR code to check in your registration' | translate}}
+            </p>
+          </div>
+        </ion-item>
+      </ion-list>
+    </ng-container>
+
+    <ng-container *ngIf="usuarioLogeado && usuarioLogeado.is_organizer === 1">
+      <ion-list margin-top>
+        <ion-item>
+          <ion-label>{{'Activities' | translate}}</ion-label>
+          <ion-select
+            [(ngModel)]="actividad"
+            [cancelText]="'Cancel' | translate"
+            [okText]="'Save' | translate"
+          >
+            <ion-option
+              *ngFor="let actividad of actividades"
+              value="{{actividad.id}}"
+              >{{actividad.nombre | translate}}</ion-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label
+            >{{entradaSalida ? ("Check-In" | translate) : ("Check-Out" |
+            translate)}}</ion-label
+          >
+          <ion-toggle
+            name="entradasalida"
+            [(ngModel)]="entradaSalida"
+          ></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-card class="card-btn">
+        <button
+          id="btnLeerCodigo"
+          ion-button
+          clear
+          color="stable"
+          block
+          (click)="leerCodigo()"
+          [disabled]="!actividad"
+        >
+          {{'Read Code' | translate}}
+        </button>
+      </ion-card>
+    </ng-container>
+  </ng-container>
+</ion-content>

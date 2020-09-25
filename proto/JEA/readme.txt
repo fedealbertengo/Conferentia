@@ -1,0 +1,1 @@
+Abrir con Corel Paint Shop Pro X8

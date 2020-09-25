@@ -1,0 +1,36 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'About'"></header-bar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+
+    <ion-item class="card-conferentia">
+      <p text-justify>{{('About-App-Powered'| translate: {x: eventName})}}</p>
+    </ion-item>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-item-divider color="light">
+      {{'Developers' | translate}}
+    </ion-item-divider>
+
+    <ng-container *ngFor="let developer of developers">
+      <ion-item class="card-developer" color="assertive" >
+        <ion-avatar item-left>
+          <img [src]="'assets/img/about/' + developer.imgSource"/>
+        </ion-avatar>
+        <h3><b>{{ developer.fullName }}</b></h3>
+        <p>{{developer.institution}}</p>
+        <p>{{developer.email}}</p>
+      </ion-item>
+      <ion-item class="card-developer">
+        <p margin-bottom text-justify *ngFor="let paragraph of developer.resume">
+          {{paragraph | translate}}
+        </p>
+      </ion-item>
+    </ng-container>
+
+  </ion-card>
+</ion-content>

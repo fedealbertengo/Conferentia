@@ -1,0 +1,22 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Sessions'"></header-bar>
+</ion-header>
+
+<ion-content padding>
+
+  <form *ngIf="areasTematicasArray.length > 8">
+    <ion-searchbar placeholder="" name=""></ion-searchbar>
+  </form>
+
+  <ion-card>
+    <ng-container *ngFor="let areaTematica of areasTematicasArray">
+      <ion-item color="assertive" on-click="goToAreaTematica(areaTematica)">
+        <ion-avatar item-left>
+          <img [src]="areaTematica.imgString"/>
+        </ion-avatar>
+        <h2>{{ areaTematica.nombre | translate}}</h2>
+      </ion-item>
+    </ng-container>
+  </ion-card>
+
+</ion-content>

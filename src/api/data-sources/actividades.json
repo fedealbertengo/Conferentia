@@ -1,0 +1,21 @@
+{
+  "timestamp": "2019-05-17T11:26:50.771Z",
+  "listaActividades": [
+    {
+      "id": 1,
+      "nombre": "",
+      "descripcion": [""],
+      "moderadores": [],
+      "disertantes": [],
+      "rawFecha": "2019-05-17 09:00",
+      "duracion": 0,
+      "imgString": "",
+      "lugar": 1,
+      "tipoActividad": 1,
+      "areaTematica": null,
+      "cuentaAsistencia": true,
+      "assignable": true,
+      "links": []
+    }
+  ]
+}

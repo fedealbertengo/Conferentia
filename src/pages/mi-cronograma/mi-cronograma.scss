@@ -1,0 +1,148 @@
+@import '../../app/app.scss';
+
+page-mi-cronograma {
+
+  .searchbar-md, .searchbar-wp{
+    padding: 0;
+  }
+
+  .searchbar-input{
+    border-radius: 0 !important;
+  }
+
+  ion-label{
+    h2,h3 {
+      white-space: normal;
+      //text-align: justify;
+    }
+  }
+
+  ion-list{
+    .virtual-position {
+      width: 100%;
+      //margin-top: 40px;
+      //&[aria-posinset~="1"] {
+      //  margin-top: 0px;
+      //}
+    }
+  }
+
+  ion-item{
+
+    h2, .h2{
+      white-space: normal;
+    }
+
+    p{
+      margin-top: 0px;
+      color: #000000;
+      white-space: normal;
+      text-align: justify;
+    }
+
+    &.item-md,
+    &.item-ios,
+    &.item-wp{
+      ion-thumbnail{
+        &[item-left],&[item-start]{
+          margin: 8px 8px 8px 8px;
+        }
+      }
+
+      .item-block ion-thumbnail{
+
+        width: 80px;
+        height: 80px;
+
+        ion-img{
+          background-color: transparent;;
+        }
+
+        img{
+          width: 80px;
+          height: 80px;
+        }
+
+        &+.item-inner{
+          margin-right:0;
+        }
+      }
+    }
+
+    &.actividad-card-info {
+      padding-left: 0;
+      font-size: 1.4rem;
+
+      &.item-block .item-inner {
+        padding-right: 0;
+      }
+
+      .label-md,
+      .label-wp,
+      .label-ios{
+        margin: 5px 0px 5px 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        li {
+          //padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  .container-fluid .button {
+    margin: 0;
+  }
+
+  #botonesDias{
+    button{
+      text-align: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-top: 10px;
+      color: lemonchiffon;
+      border-color: lemonchiffon;
+      //width:100%;
+    }
+  }
+
+  .filter-buttons{
+    text-align: center;
+    margin-bottom: 5px;
+
+    #boton-x{
+      width: 10%;
+    }
+    #boton-filtro-dia{
+      width: 15%;
+    }
+    #boton-filtro-actividad{
+      width: 35%;
+    }
+    #boton-filtro-tematica{
+      width: 35%;
+    }
+
+    button{
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0 0.45em;
+      &:first-child {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    //Modificaciones al menú desplegable inferior de filtros para pantallas reducidas
+  }
+}

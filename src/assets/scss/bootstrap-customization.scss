@@ -1,0 +1,52 @@
+// Bootstrap 4 SCSS variable overrides for Visual MESA Angular2 app
+
+// This commentary is for testing purposes, in order to check the copy of the file to _custom.scss
+
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+//
+
+$vmHeaderBackgroundColor1: #80AB7F;
+
+$disabled: #F7F7F7;
+$border-green: #3C763D;
+
+//--VmHeaderBackgroundColor1Lighter: #9EBF9D;
+//--VmHeaderBackgroundColor1Lightest: #BDD3BC;
+
+$wijmo-header-color: #EAEAEA;
+
+$brand-primary: #4EBFDF;
+$brand-success: #7FAA7E;
+//$brand-success: #E99E39;
+$brand-warning: #E99E39;
+$brand-info: #361B5A;
+$brand-danger: #961B1E;
+$brand-muted: #58595B;
+
+$bg-primary: #5EAAB0;
+$bg-success: #7FAA7E;
+$bg-info: #361B5A;
+$bg-warning: #E99E39;
+$bg-danger: #961B1E;
+$bg-inverse: #58595B;
+$bg-faded: #D1D3D4;
+
+//Custom font sizes
+$font-size-base: .95rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: 1.15rem !default;
+$font-size-sm: .805rem !default;
+$font-size-xs: .70rem !default;
+
+$accordion-background: $bg-primary;
+
+//This one must be always kept as the last line of the file
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/_variables';
+@import '../../../node_modules/bootstrap/scss/_buttons';
+@import '../../../node_modules/bootstrap/scss/mixins/_breakpoints';
+
+body{
+  background-color: $white !important;
+}

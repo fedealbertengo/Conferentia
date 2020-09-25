@@ -1,0 +1,14 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Next Activity'"></header-bar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <div *ngFor="let actividad of actividades" class="actividad-card">
+      <card-actividad [actividad]="actividad" [fullSize]="false"></card-actividad>
+      <ion-item>
+        <li><p>{{('Remaining until next activity' | translate) + ': '}}</p> </li>
+        <li>{{getTiempoFaltante(actividad)}}</li>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

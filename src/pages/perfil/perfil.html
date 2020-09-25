@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{'Profile' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ng-container *ngIf="usuario">
+
+    <!--FIXME: Adaptar a los diversos tipos de usuario que pueden aparecer después-->
+    <ion-list>
+      <ion-item>
+        <p>
+          <strong>{{('Full Name' | translate) + ': '}} </strong>
+          {{usuario.first_name + ' ' + usuario.last_name}}
+        </p>
+      </ion-item>
+      <ion-item>
+        <div class="show-list-numbers-and-dots">
+          <p>
+            <strong>{{('Username' | translate) + ': '}} </strong>
+            {{usuario.user_name}}
+          </p>
+          <p *ngIf="usuario.is_organizer === 0" color="none" on-click="goToAsistencia()">
+            <button ion-button clear>▶️ {{"Go to assistance QR" | translate}}</button>
+          </p>
+        </div>
+      </ion-item>
+
+    <!-- FIXME: Crear componente que contenga al generador de QR -->
+      <ion-item *ngIf="usuario.is_organizer === 1">
+        <div text-center class="show-list-numbers-and-dots">
+          <qr-code [value]="createdCode" [size]="220"></qr-code>
+        </div>
+      </ion-item>
+
+      <ion-item *ngIf="usuario.is_organizer === 1 && usuario.registration_id">
+        <p>
+          <strong>{{('Registration ID' | translate) +': '}} </strong>
+          {{usuario.registration_id}}
+        </p>
+      </ion-item>
+
+      <ion-item *ngIf="usuario.team">
+        <p margin-bottom><strong>{{'Team' | translate}}:</strong> {{usuario.team.name}}</p>
+        <p><strong>{{'Team Members' | translate}}:</strong></p>
+        <p *ngFor="let member of usuario.team.members">{{member.first_name + " " + member.last_name}}</p>
+      </ion-item>
+
+      <ion-item *ngIf="usuario.is_organizer === 0">
+        <assistance-counter ></assistance-counter>
+      </ion-item>
+
+      <ion-item *ngIf="usuario.is_organizer === 2">
+        <p>{{"You're logged in as the guest user" | translate}}</p>
+      </ion-item>
+
+    </ion-list>
+
+  </ng-container>
+
+  <ion-card class="card-btn">
+    <button id="btnCerrarSesion" ion-button clear color="stable" block (click)="cerrarSesion()">
+      {{'Logout' | translate}}
+    </button>
+  </ion-card>
+
+</ion-content>

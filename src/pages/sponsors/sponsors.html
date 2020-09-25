@@ -1,0 +1,66 @@
+<ion-header>
+    <header-bar [navCtrl]="navCtrl" [pageTitle]="'Sponsors'"></header-bar>
+</ion-header>
+<ion-content padding>
+
+    <div *ngIf="sponsor">
+        <ion-list>
+            <ion-item-divider color="light">{{ sponsor.name }}</ion-item-divider>
+
+            <ion-item color="none">
+                <ion-thumbnail item-left>
+                    <img [src]="imagePath + sponsor.imgSource + '.png'" />
+                </ion-thumbnail>
+                <div>
+                    <ion-badge item-end [ngClass]="'sponsor' + (sponsor.type ? '-' + sponsor.type.toLowerCase() : '')"> {{ sponsor.type }}</ion-badge>
+                </div>
+            </ion-item>
+
+            <ion-item id="descripcion-sponsor">
+                <div class="show-list-numbers-and-dots">
+                    <ng-container *ngIf="sponsor.detail">
+                        <p class="mb-2"><strong>{{sponsor.detail | translate}}</strong></p>
+                        <hr>
+                    </ng-container>
+                    <p *ngFor="let paragraph of sponsor.description" padding-top>{{paragraph | translate}}</p>
+                    <p *ngIf="sponsor.url" padding-top text-center>
+                        <button ion-button clear (click)="goToWebPage(sponsor.url)">{{'Go to web page' | translate}}</button>
+                    </p>
+                </div>
+            </ion-item>
+
+        </ion-list>
+    </div>
+
+    <div *ngIf="!sponsor && sponsorService.sponsors && sponsorService.sponsors.length">
+
+        <ion-list *ngFor="let sponsor of sponsorService.sponsors" (click)="navigateToSponsors(sponsor)">
+
+                <ion-item-divider color="light">{{ sponsor.name }}</ion-item-divider>
+
+                <ion-item color="none">
+                    <ion-thumbnail item-left>
+                        <img [src]="imagePath + sponsor.imgSource + '.png'" />
+                    </ion-thumbnail>
+                    <div>
+                        <ion-badge item-end [ngClass]="'sponsor' + (sponsor.type ? '-' + sponsor.type.toLowerCase() : '')"> {{ sponsor.type }}</ion-badge>
+                    </div>
+                </ion-item>
+
+                <ion-item id="descripcion-sponsor">
+                    <div class="show-list-numbers-and-dots">
+                        <ng-container *ngIf="sponsor.detail">
+                            <p class="mb-2"><strong>{{sponsor.detail | translate}}</strong></p>
+                            <hr>
+                        </ng-container>
+                        <p *ngFor="let paragraph of sponsor.description" padding-top>{{paragraph | translate}}</p>
+                        <p *ngIf="sponsor.url" padding-top text-center>
+                            <button ion-button clear (click)="goToWebPage(sponsor.url)">{{'Go to web page' | translate}}</button>
+                        </p>
+                    </div>
+                </ion-item>
+
+        </ion-list>
+    </div>
+
+</ion-content>

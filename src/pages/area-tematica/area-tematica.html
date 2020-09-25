@@ -1,0 +1,47 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="areaTematica.nombre"></header-bar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="areaTematica">
+    <ion-list>
+
+      <ion-item color="none">
+        <ion-avatar item-left>
+          <img [src]="areaTematica.imgString" />
+        </ion-avatar>
+        <h2>{{areaTematica.nombre | translate }}</h2>
+      </ion-item>
+
+      <div *ngIf="areaTematica.descripcion">
+        <ion-item-divider color="light">
+          {{'Description' | translate}}
+        </ion-item-divider>
+        <ion-item color="none">
+          <p>{{areaTematica.descripcion | translate}}</p>
+        </ion-item>
+      </div>
+
+
+      <div *ngIf="areaTematica.subAreas && areaTematica.subAreas.length">
+        <ion-item-divider color="light">
+          {{'Sub-sessions' | translate}}
+        </ion-item-divider>
+
+        <ng-container *ngFor="let areaTematica of areaTematica.subAreas">
+          <ion-card *ngIf="areaTematica">
+            <ion-list>
+              <ion-item color="none">
+                <ion-avatar item-left>
+                  <img [src]="areaTematica.imgString" />
+                </ion-avatar>
+                <h2>{{areaTematica.nombre | translate}}</h2>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ng-container>
+      </div>
+
+    </ion-list>
+  </ion-card>
+</ion-content>

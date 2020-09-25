@@ -1,0 +1,155 @@
+{
+  "timestamp": "2019-05-16T11:25:18.771Z",
+  "listaSponsors": [
+    {
+      "name": "AIE",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Asociación de Ingenieros Estructurales"
+      ],
+      "imgSource": "aie",
+      "url": "https://aiearg.org.ar/"
+    },
+    {
+      "name": "AMCA",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Asociación Argentina de Mecánica Computacional"
+      ],
+      "imgSource": "amcacelestegris",
+      "url": ""
+    },
+    {
+      "name": "ASAMACI",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Asociación Argentina de Matemática Aplicada, Computacional e Industrial"
+      ],
+      "imgSource": "asamacilogo",
+      "url": "https://asamaci.org.ar/"
+    },
+    {
+      "name": "CAPSF",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Colegio de Arquitectos de la Provincia de Santa Fe"
+      ],
+      "imgSource": "capsf",
+      "url": "http://www.capsf.org.ar/"
+    },
+    {
+      "name": "CONICET",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Consejo Nacional de Investigaciones Científicas y Técnicas"
+      ],
+      "imgSource": "conicet",
+      "url": "https://www.conicet.gov.ar/"
+    },
+    {
+      "name": "CPIC",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Colegio de profesionales de la ingeniería civil de la provincia de Santa Fe distrito 1"
+      ],
+      "imgSource": "cpic-logo",
+      "url": "http://www.cpicd1.org.ar/"
+    },
+    {
+      "name": "Cámara de Diputados de la Provincia de Santa Fe",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "diputadoslogo",
+      "url": "https://diputadossantafe.gov.ar/"
+    },
+    {
+      "name": "Agencia Nacional de Promoción Científica y Tecnológica",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "logoagencia",
+      "url": "https://www.argentina.gob.ar/ciencia/agencia/"
+    },
+    {
+      "name": "CIMEC",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Centro de Investigación de Métodos Computacionales"
+      ],
+      "imgSource": "logocimec",
+      "url": "https://cimec.org.ar/"
+    },
+    {
+      "name": "CYTED",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "Programa Iberoamericano de Ciencia y Tecnología para el Desarrollo"
+      ],
+      "imgSource": "logo-cyted",
+      "url": "http://www.cyted.org/"
+    },
+    {
+      "name": "Cámara de Senadores de la Provincia de Santa Fe",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "senadoreslogo",
+      "url": "https://www.senadosantafe.gob.ar/"
+    },
+    {
+      "name": "Santa Fé Ciudad",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "SFC_2018_fnd_claro_color",
+      "url": "https://www.santafeciudad.gov.ar/"
+    },
+    {
+      "name": "UNL",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "unl-logo",
+      "url": "https://www.unl.edu.ar/"
+    },
+    {
+      "name": "UTN FRSF",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        ""
+      ],
+      "imgSource": "utn",
+      "url": "https://www.frsf.utn.edu.ar/"
+    },
+    {
+      "name": "Y-TEC",
+      "type": "Platinum",
+      "detail": "",
+      "description": [
+        "YPF Tecnología"
+      ],
+      "imgSource": "ytec",
+      "url": "https://y-tec.com.ar"
+    }
+  ]
+}

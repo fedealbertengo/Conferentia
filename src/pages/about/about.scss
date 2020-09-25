@@ -1,0 +1,37 @@
+page-about {
+
+  .scroll-content{
+    padding: 8px;
+  }
+  min-width: 40px;
+  min-height: 40px;
+
+  .item-md, .item-ios, .item-wp {
+
+    ion-avatar {
+
+      align-self: end;
+      margin-top: 16px !important;
+
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+  }
+
+  .card-developer{
+    .label{
+      margin-top: 0 !important;
+    }
+    h3, p{
+      white-space: normal;
+    }
+  }
+
+  .card-conferentia{
+    h3, p{
+      white-space: normal;
+    }
+  }
+}

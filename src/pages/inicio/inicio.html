@@ -1,0 +1,41 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Home'"></header-bar>
+</ion-header>
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div>
+          <img *ngIf="logoEnabled" id='main_logo' class='main_logo' [src]="logoSource"/>
+          <div id="event-name" text-center>
+            <!--<label style="color: #737575;">World Smart City FORUM </label>-->
+            <!--<label style="color: #009736; font-weight: 400">2018</label>-->
+          </div>
+        </div>
+      </ion-col>
+      <ion-col col-12>
+        <div>
+          <sponsor *ngIf="sponsorsEnabled"></sponsor>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- TODO: Agregar variable global para ver si se carga o no un logo en la pagina de inicio -->
+<!--  <div>-->
+<!--    <img *ngIf="logoEnabled" id='main_logo' class='main_logo' [src]="logoSource"/>-->
+<!--    <div id="event-name" text-center>-->
+<!--      &lt;!&ndash;<label style="color: #737575;">World Smart City FORUM </label>&ndash;&gt;-->
+<!--      &lt;!&ndash;<label style="color: #009736; font-weight: 400">2018</label>&ndash;&gt;-->
+<!--    </div>-->
+
+<!--    <sponsor *ngIf="sponsorsEnabled"></sponsor>-->
+<!--  </div>-->
+<!--  <button-bar *ngIf="buttonBarEnabled"></button-bar>-->
+
+</ion-content>
+
+<ion-footer>
+  <button-bar *ngIf="buttonBarEnabled"></button-bar>
+</ion-footer>
+

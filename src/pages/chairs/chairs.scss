@@ -1,0 +1,19 @@
+page-chairs {
+
+  .scroll-content{
+    padding: 8px;
+  }
+
+  .item-md, .item-ios, .item-wp {
+    ion-avatar img {
+      width: 64px;
+      height: 64px;
+    }
+  }
+
+  .card-chair{
+    h3, p{
+      white-space: normal;
+    }
+  }
+}

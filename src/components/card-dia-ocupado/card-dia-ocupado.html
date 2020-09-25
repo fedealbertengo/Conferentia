@@ -1,0 +1,7 @@
+<div>
+  <ion-item-divider color="light">{{ dia }}</ion-item-divider>
+
+  <ion-list [virtualScroll]="actividades" [approxItemHeight]="'200px'">
+    <card-actividad *virtualItem="let actividad" [actividad]="actividad" [fullSize]="false"></card-actividad>
+  </ion-list>
+</div>

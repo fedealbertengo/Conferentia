@@ -1,0 +1,32 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Localization'"></header-bar>
+</ion-header>
+
+<ion-content padding id="pageLocalizacion">
+
+  <!-- TODO: Cambiar rutas usando el objeto global -->
+  <ion-card>
+    <img src="assets/img/default/card-google-maps.png" (click)="goToMapaCiudad()"/>
+  </ion-card>
+
+  <!--<ion-card>-->
+    <!--<img src="assets/img/default/card-centro-convenciones-san-rafael.png" (click)="goToMapaInstalaciones()"/>-->
+  <!--</ion-card>-->
+
+  <ion-card hideWhen="ios">
+    <img src="assets/img/default/card-cuando-pasa.jpg" (click)="goToCuandoPasa()"/>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/default/card-sfc.png" (click)="goToSantaFeTurismo()"/>
+  </ion-card>
+
+  <ion-card>
+    <img src="assets/img/default/card-como-voy.png" (click)="goToCualMeLleva()"/>
+  </ion-card>
+
+  <!--<ion-card>-->
+    <!--<img src="assets/img/default/card-unl.png" (click)="goToMapaInstalacionesUTN()"/>-->
+  <!--</ion-card>-->
+
+  </ion-content>

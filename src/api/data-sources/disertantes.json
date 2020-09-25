@@ -1,0 +1,75 @@
+{
+  "timestamp": "2019-05-09T06:33:07.842Z",
+  "listaDisertantes": [
+    {
+      "idDisertante": 1,
+      "nombreCompleto": "Roberto Lamberts",
+      "institucion": "Universidad Federal de Santa Catarina, Brasil",
+      "gender": "m",
+      "imgString": "roberto-lamberts",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 2,
+      "nombreCompleto": "Adrian Lew",
+      "institucion": "Stanford University, USA",
+      "gender": "m",
+      "imgString": "adrian-lew",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 3,
+      "nombreCompleto": "Rainald Löhner",
+      "institucion": "George Mason University, USA",
+      "gender": "m",
+      "imgString": "rainald-lohner",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 4,
+      "nombreCompleto": "Jaime Klapp",
+      "institucion": "Instituto Nacional de Investigaciones Nucleares, México",
+      "gender": "m",
+      "imgString": "jaime-klapp",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 5,
+      "nombreCompleto": "Mariano Vázquez",
+      "institucion": "BSC Barcelona, España",
+      "gender": "m",
+      "imgString": "mariano-vazquez",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 6,
+      "nombreCompleto": "Luis Caffarelli",
+      "institucion": "University of Texas at Austin, USA",
+      "gender": "m",
+      "imgString": "luis-caffarelli",
+      "curriculum": [
+        ""
+      ]
+    },
+    {
+      "idDisertante": 7,
+      "nombreCompleto": "Marcela Cruchaga",
+      "institucion": "USACH, Santiago, Chile",
+      "gender": "f",
+      "imgString": "marcela-cruchaga",
+      "curriculum": [
+        ""
+      ]
+    }
+  ]
+}

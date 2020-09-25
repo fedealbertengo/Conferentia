@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      {{'Login' | translate}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5">
+  <ion-grid>
+    <div id="logoHolder">
+      <img id="logo" [src]="logoSource">
+    </div>
+    <form id="login-form1">
+      <div class="spacer" style="height:20px"></div>
+      <ion-list id="login-list1">
+        <ion-item id="login-input1">
+          <ion-label>
+            {{'Username' | translate}}
+          </ion-label>
+          <ion-input name="nombreUsuario" type="nombreUsuario" placeholder="" [(ngModel)]="nombreUsuario"></ion-input>
+        </ion-item>
+        <ion-item id="login-input2">
+          <ion-label>
+            {{'Password' | translate}}
+          </ion-label>
+          <ion-input name="password" type="password" placeholder="" [(ngModel)]="contrasenia"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class="spacer" style="height:0px;" id="login-spacer1"></div>
+      <ion-card class="card-btn">
+        <button id="login-button1" ion-button clear color="stable" block (click)="login(nombreUsuario, contrasenia)">
+          {{'Login' | translate}}
+        </button>
+      </ion-card>
+      <ion-card class="card-btn">
+        <button id="access-button" ion-button clear color="stable" block (click)="login('guest', 'guest')">
+          {{'Access as Guest' | translate}}
+        </button>
+      </ion-card>
+      <!-- TODO: Ver cómo manejar el tema del registro, en implementación futura -->
+      <!--<ion-card class="card-btn">-->
+        <!--<button id="login-button2" ion-button clear color="stable" block (click)="goToRegistro()">-->
+          <!--Registrarse-->
+        <!--</button>-->
+      <!--</ion-card>-->
+    </form>
+  </ion-grid>
+</ion-content>

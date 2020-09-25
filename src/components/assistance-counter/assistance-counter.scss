@@ -1,0 +1,17 @@
+assistance-counter {
+    p {
+      margin-bottom: 8px;
+    }
+    .progress-bar-container{
+      border-radius: 6px;
+      background-color: lightgray;
+      height: 16px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    .progress-bar{
+      background-color: orange;
+      border-radius: 6px;
+      height: 16px;
+    }
+}

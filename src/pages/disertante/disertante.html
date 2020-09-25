@@ -1,0 +1,24 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Speaker'"></header-bar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="disertante">
+    <ion-list>
+
+      <card-disertante [disertante]="disertante" [fullSize]="true"></card-disertante>
+
+      <ion-item-divider color="light">
+        {{'Activities in which is involved' | translate}}
+      </ion-item-divider>
+
+      <ng-container *ngFor="let actividad of actividadesModerador">
+        <card-actividad [actividad]="actividad" [fullSize]="false"></card-actividad>
+      </ng-container>
+      <ng-container *ngFor="let actividad of actividadesDisertante">
+        <card-actividad [actividad]="actividad" [fullSize]="false"></card-actividad>
+      </ng-container>
+
+    </ion-list>
+  </ion-card>
+</ion-content>

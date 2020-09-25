@@ -1,0 +1,49 @@
+button-bar {
+
+  .button-bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+
+    .button-md, .button-ios, .button-wp{
+      margin-left: 8px;
+      margin-right: 8px;
+      height: 4.5rem;
+      width: 4.5rem;
+      border-radius: 8px;
+    }
+
+    .button{
+      background: transparent;
+      color: white;
+      font-weight: bold;
+    }
+
+    button{
+      &[color="standings"]{
+        color: black !important;
+        background-color: gold !important;
+      }
+      &[color="survey"]{
+        background-color: purple !important;
+      }
+      &[color="whatsapp"]{
+        background-color: #2CB742 !important;
+      }
+      &[color="facebook"]{
+        background-color: #4267B2 !important;
+      }
+      &[color="twitter"]{
+        background-color: #00acee !important;
+      }
+      &[color="instagram"]{
+        background-color: #bc2a8d !important;
+      }
+    }
+  }
+
+}

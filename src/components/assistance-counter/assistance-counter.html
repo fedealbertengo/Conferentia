@@ -1,0 +1,8 @@
+<div class="show-list-numbers-and-dots">
+  <p margin-bottom><strong>{{'Assistance Percentage' | translate}}: {{ calculatePercentage().toFixed(2) }}%</strong></p>
+  <div class="progress-bar-container">
+    <div class="progress-bar" [ngStyle]="{'width': calculatePercentage() + '%'}"></div>
+  </div>
+  <p margin-bottom>{{('Assistance-Counter' | translate: {x: currentAssistances, y: totalAssistances})}}.</p>
+  <p *ngIf="minimumAssistanceRequired" text-justify>(*) {{('Assistance-Minimum' | translate: {minimum:  minimumPercentage, eventName: eventName})}}.</p>
+</div>

@@ -1,0 +1,17 @@
+<ion-item color="none" id="nombre-disertante" on-click="goToDisertante(disertante.idDisertante)">
+  <ion-avatar item-left>
+    <img [src]="disertante.imgString" />
+  </ion-avatar>
+  <h2>{{disertante.nombreCompleto}}</h2>
+  <p *ngIf="disertante.institucion">
+    {{disertante.institucion}}
+  </p>
+</ion-item>
+
+<ion-item id="curriculum-disertante" *ngIf="fullSize">
+  <div class="show-list-numbers-and-dots">
+    <p margin-top *ngFor="let parrafo of disertante.curriculum">
+      {{parrafo | translate}}
+    </p>
+  </div>
+</ion-item>

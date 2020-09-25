@@ -1,0 +1,17 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Speakers'"></header-bar>
+
+</ion-header>
+
+<ion-content padding>
+  <!--<form *ngIf="disertantes.length > 8">-->
+    <!--<ion-searchbar placeholder="" name=""></ion-searchbar>-->
+  <!--</form>-->
+
+  <ion-card>
+    <ng-container *ngFor="let disertante of disertantes">
+      <card-disertante [disertante]="disertante" [fullSize]="false"></card-disertante>
+    </ng-container>
+  </ion-card>
+
+</ion-content>

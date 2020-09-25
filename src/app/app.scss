@@ -1,0 +1,267 @@
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+
+// Creates text alignment classes based on screen size
+// TODO this would be nice to add to the framework
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    // Provide text `[text-{bp}]` attributes for aligning text based on screen size
+    [text#{$infix}-center] {
+      text-align: center;
+    }
+
+    [text#{$infix}-left] {
+      text-align: left;
+    }
+
+    [text#{$infix}-right] {
+      text-align: right;
+    }
+
+    [hidden#{$infix}-up] {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+    [hidden#{$infix}-down] {
+      display: none;
+    }
+  }
+}
+
+// Customización de los botones y otros inputs, usando las variables de colores definidas
+// al inicio de la sección
+
+$white: #FFF;
+$black: #000;
+
+//CAEII 2018;
+//$primary: #E00A39;
+//$action: #E00A39;
+//$toolbars: #F8F8F8;
+//$active: gray;
+
+//ENIEF 2019
+$primary: #F4511E;
+$action: #F4511E;
+$toolbars: #F8F8F8;
+$active: gray;
+
+ion-app {
+
+  // Customización del fondo de pantalla de la app
+  ion-content {
+    //background: url('../assets/img/tema/' + $currentImplementation + '/background.png') no-repeat center;
+    background-size: cover;
+    background-color: $white;
+  }
+
+  //Menu layout
+  .toolbar {
+
+    .toolbar-title {
+      &[class*="toolbar-title-"] {
+        margin-top: 5px;
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+    }
+
+    .toolbar-background {
+      &[class*="toolbar-background-"] {
+        background-color: $toolbars;
+      }
+    }
+
+    .toolbar-title {
+      &[class*="toolbar-title-"] {
+        color: $active;
+      }
+    }
+  }
+
+  [class*="tabs-"] {
+    .tabbar {
+      background-color: $toolbars;
+    }
+
+    .tab-button-icon {
+      color: $active;
+    }
+  }
+
+  #profile-button {
+    width: 32px;
+    border-color: transparent;
+  }
+
+  //iOS styles
+  .bar-button-default-ios,
+  .bar-button-default.bar-button-ios-default,
+  .bar-button-clear-ios-default {
+    color: $primary;
+    background-color: transparent;
+  }
+
+  .tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: $primary;
+  }
+
+  .tabs-ios .tab-button:hover:not(.disable-hover),
+  .tabs-ios .tab-button[aria-selected=true] {
+    color: $primary;
+  }
+
+  .bar-button-solid-ios {
+    color: #fff;
+    background-color: $primary;
+  }
+
+  .bar-button-outline-ios {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $primary;
+    color: $primary;
+    background-color: transparent;
+
+    &.activated {
+      color: $white;
+      background-color: $primary;
+    }
+  }
+
+  //Android styles
+  .tabs-md .tab-button[aria-selected=true] {
+    color: $primary;
+    .tab-button-icon {
+      color: $primary;
+    }
+  }
+
+  .bar-button-outline-md {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $primary;
+    color: $primary;
+    background-color: transparent;
+  }
+
+  .toolbar-title-md {
+    font-size: 2rem;
+    font-weight: 500;
+    color: $primary;
+    padding: 0px 12px;
+  }
+
+  //Windows Phone styles
+  .tabs-wp .tab-button[aria-selected=true] {
+    border-bottom-color: $primary;
+    color: $primary;
+
+    .tab-button-icon {
+      color: $primary;
+    }
+  }
+
+  .bar-button-outline-wp {
+    border-width: 1px;
+    border-style: solid;
+    border-color: $primary;
+    color: $primary;
+    background-color: transparent;
+  }
+
+  [padding] h1:first-child,
+  [padding] h2:first-child,
+  [padding] h3:first-child,
+  [padding] h4:first-child,
+  [padding] h5:first-child,
+  [padding] h6:first-child {
+    margin-top: 0.2rem;
+  }
+
+  .action-sheet-md .action-sheet-button {
+    min-height: 3.8rem;
+    font-size: 1.4rem;
+  }
+
+}
+
+.alertaError {
+
+  .alert-wrapper {
+    background-color: red; // bg color of alert content
+    color: white;
+  }
+}
+.alertaCorrecto {
+
+  .alert-wrapper {
+    background-color: green; // bg color of alert content
+    color: white;
+  }
+}
+
+.alert-ios .alert-radio-label, .alert-md .alert-radio-label, .alert-wp .alert-radio-labe{
+  white-space: pre-line;
+}
+
+.text-primary{
+  color: $primary !important;
+}
+
+.main-logo-small{
+  max-height: 160px;
+}
+
+.loading-wrapper{
+  border-radius: 10px !important;
+  color: $primary !important;
+}
+
+.button-clear-md{
+  color: $primary;
+}
+
+.hide {
+  display: none !important;
+}

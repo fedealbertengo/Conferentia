@@ -1,0 +1,12 @@
+node_modules/
+
+www/
+
+platforms/
+
+plugins/
+
+*.cmd
+
+.idea/
+.sourcemaps/

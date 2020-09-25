@@ -1,0 +1,24 @@
+page-inicio-sesion{
+  #logoHolder{
+    img{
+      max-width: 300px;
+      margin: auto;
+      display: block;
+
+      @media (orientation: portrait){
+        @media (max-height: 480px) {
+          width:50%;
+        }
+        @media (min-height: 481px) and (max-height: 600px){
+          width: 60%
+        }
+        @media (min-height: 601px){
+          width: 70%
+        }
+      }
+      @media (orientation: landscape) and (max-height: 599px) {
+        display: none;
+      }
+    }
+  }
+}

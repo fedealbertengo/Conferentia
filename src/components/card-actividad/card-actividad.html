@@ -1,0 +1,126 @@
+<div on-click="goToActividad()">
+  <ion-item color="none">
+    <ion-thumbnail item-left>
+      <img *ngIf="actividad.imgString != ''" [src]="actividad.imgString" />
+      <img *ngIf="actividad.imgString == '' && actividad.areaTematica != null" [src]="actividad.areaTematica.imgString"/>
+    </ion-thumbnail>
+    <div class="card-category">
+      <h2>{{actividad.nombre}}</h2>
+      <p *ngIf="actividad.areaTematica != null"> {{ actividad.areaTematica.nombre | translate}}</p>
+      <ion-icon *ngIf="showFavorite" [name]="esFavorito ? 'star' : 'star-outline'" [ngStyle]="{'color': (esFavorito ? '#ff9d00' : 'black')}" item-end (click)="modificarFavorito($event)"></ion-icon>
+    </div>
+    <!--<p *ngIf="actividad.areaTematica == null"> {{ actividad.tipoActividad.nombre }}</p>-->
+
+    <div class="card-category">
+      <ion-badge [ngStyle]="{'background-color': actividad.tipoActividad.backgroundColor, 'color': actividad.tipoActividad.color}" item-end>
+        <label>{{actividad.tipoActividad.nombre | translate}}</label>
+      </ion-badge>
+      <ion-badge *ngIf="!fullSize && tieneVistaDetallada(actividad)" class="goto-badge" item-end>
+        <label>{{'See More' | translate}}</label>
+        <i class="fa fa-2x fa-angle-double-right " aria-hidden="true"></i>
+      </ion-badge>
+    </div>
+
+  </ion-item>
+
+  <ion-item *ngIf="fullSize && actividad.descripcion.length">
+    <div class="show-list-numbers-and-dots">
+      <p margin-top *ngFor="let parrafo of actividad.descripcion" >
+        {{parrafo | translate}}
+      </p>
+
+      <!-- TODO: Ver de qué forma adaptar el asunto de que se muestre o no la ID -->
+      <ng-container  *ngIf="showActivityId">
+        <br>
+        <p>{{('Activity ID' | translate) +  ': ' + actividad.id}}</p>
+      </ng-container>
+
+    </div>
+  </ion-item>
+
+  <ion-slides autoplay="3000" loop="true" speed="750" *ngIf="fullSize &&  actividad.imgStringsContent">
+    <ion-slide *ngFor="let image of actividad.imgStringsContent">
+      <img [src]="image"/>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item class="actividad-card-info">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 no-padding text-left>
+          <ul>
+            <li *ngIf="actividad.lugar"><strong> {{('Place' | translate) + ':'}} </strong> {{actividad.lugar.nombre | translate}} </li>
+            <li><strong> {{('Date' | translate) + ':'}} </strong> {{mostrarFechaActual(actividad)}} </li>
+          </ul>
+        </ion-col>
+        <ion-col col-6 no-padding text-left>
+          <ul>
+            <li><strong> {{('Start Time' | translate) + ':'}} </strong> {{actividad.horaInicio}} </li>
+          </ul>
+        </ion-col>
+        <ion-col col-6 no-padding text-right>
+          <ul>
+            <li><strong> {{('End Time' | translate) + ':'}} </strong> {{actividad.horaFin}} </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ng-container *ngIf="fullSize">
+
+    <!--Moderadores-->
+    <ion-item-divider color="light" *ngIf="actividad.moderadores.length">
+      <ng-container *ngIf="actividad.moderadores.length > 1">{{'Moderators' | translate}}</ng-container>
+      <ng-container *ngIf="actividad.moderadores.length === 1">{{'Moderator' | translate}}</ng-container>
+    </ion-item-divider>
+
+    <ng-container *ngFor="let moderador of actividad.moderadores">
+      <card-disertante [disertante]="moderador" [fullSize]="false"></card-disertante>
+    </ng-container>
+
+    <!--Disertantes-->
+    <ion-item-divider color="light" *ngIf="actividad.disertantes.length">
+      <!-- TODO: Generar un setting que permita configurar qué leyenda se muestra en esta tarjeta disertantes, organizador, panelista, expositor, autor, etc. etc.) -->
+      <ng-container *ngIf="actividad.disertantes.length > 1">{{'Speakers' | translate}}</ng-container>
+      <ng-container *ngIf="actividad.disertantes.length === 1">{{'Speaker' | translate}}</ng-container>
+    </ion-item-divider>
+
+    <ng-container *ngFor="let disertante of actividad.disertantes">
+      <card-disertante [disertante]="disertante" [fullSize]="false"></card-disertante>
+    </ng-container>
+
+    <!--<ng-container *ngIf="actividad.lugar">-->
+    <!--<ion-item-divider color="light" *ngIf="actividad.lugar.marcador">-->
+    <!--&lt;!&ndash; TODO: Generar un setting que permita configurar qué leyenda se muestra en esta tarjedisertantesante, organizador, panelista, etc. etc.) &ndash;&gt;-->
+    <!--<ng-container>Localización</ng-container>-->
+    <!--</ion-item-divider>-->
+
+    <ng-container *ngIf="actividad.lugar.marcador">
+      <ion-item-divider color="light">{{('Location' | translate)}}</ion-item-divider>
+      <ion-item color="none" on-click="goToMapaCiudad(actividad)">
+        <p><strong>{{('Location' | translate) + ": "}}</strong> {{actividad.lugar.marcador.titulo}}</p>
+        <p><strong>{{('Address' | translate) + ": "}}</strong> {{actividad.lugar.marcador.direccion}}</p>
+        <p padding-top text-center>
+          <button ion-button clear>{{'Go to Location' | translate}}</button>
+        </p>
+      </ion-item>
+    </ng-container>
+
+    <ng-container *ngIf="actividad.links && actividad.links.length">
+      <ng-container *ngFor="let link of actividad.links">
+        <ion-item-divider color="light">
+          {{ link.title | translate }}
+        </ion-item-divider>
+        <ion-item color="none" on-click="goToEncuesta(link.url)">
+          <p padding-top text-center>
+            <button ion-button clear>{{link.description | translate}}</button>
+          </p>
+        </ion-item>
+      </ng-container>
+    </ng-container>
+
+
+  </ng-container>
+
+</div>

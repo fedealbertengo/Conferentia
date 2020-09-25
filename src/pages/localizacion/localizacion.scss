@@ -1,0 +1,20 @@
+#pageLocalizacion {
+
+  button{
+    display: block;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    color: lemonchiffon;
+    border-color: lemonchiffon;
+    width:100%;
+  }
+
+  ion-card{
+    &:first-child{
+      margin-top: 0px;
+    }
+  }
+
+}

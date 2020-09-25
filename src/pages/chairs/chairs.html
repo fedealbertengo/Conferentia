@@ -1,0 +1,25 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Commitee'"></header-bar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ng-container *ngFor="let chair of chairs">
+      <!-- TODO: Arreglar esto para caso genérico -->
+      <!--<ion-item class="card-chair" color="assertive" on-click="goToChair(chair.idChair)">-->
+      <ion-item class="card-chair" color="assertive">
+        <ion-avatar item-left>
+          <img [src]="chair.imgString"/>
+        </ion-avatar>
+        <h3><b>{{ (chair.nombreCortesia | translate) + ' ' + chair.nombreCompleto }}</b></h3>
+        <p *ngIf="chair.institucion">{{chair.institucion}}</p>
+        <p *ngIf="chair.cargo">{{chair.cargo}}</p>
+        <!--<p *ngIf="chair.email">{{chair.email}}</p>-->
+        <p *ngIf="chair.areaDeRevision">{{chair.areaDeRevision.nombre | translate}}</p>
+      </ion-item>
+    </ng-container>
+  </ion-card>
+
+</ion-content>

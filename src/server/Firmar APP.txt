@@ -1,0 +1,6 @@
+cd "C:\Program Files\Java\jdk1.8.0_171\bin"
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore D:\Dev\conferentia\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk alias_name
+
+D:
+cd D:\Android\android-sdk\build-tools\27.0.3
+zipalign -v 4 D:\Dev\conferentia\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk D:\Dev\conferentia\platforms\android\app\build\outputs\apk\release\CAEII2018.apk

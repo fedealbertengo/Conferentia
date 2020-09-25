@@ -1,0 +1,49 @@
+page-sponsors{
+
+  ion-item, .item-md{
+    p{
+      margin-top: 0;
+      color: #000000;
+      white-space: normal;
+      text-align: justify;
+    }
+
+    ion-thumbnail {
+      ion-img, img {
+        width: 128px;
+        height: 128px;
+      }
+    }
+  }
+
+  .sponsor{
+    color:black;
+    background-color: white;
+  }
+
+  .sponsor-bronze{
+    background-color: saddlebrown;
+  }
+
+  .sponsor-silver{
+    color:black;
+    background-color: silver;
+  }
+
+  .sponsor-gold{
+    color: black;
+    background-color: #F2A328;
+  }
+
+  .sponsor-premium{
+    background-color: darkblue;
+  }
+
+  .sponsor-platinum{
+    background-color: #DF2139;
+  }
+
+  .sponsor-exclusive{
+    background-color: purple;
+  }
+}

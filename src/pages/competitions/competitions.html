@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{"Competitions" | translate}}:</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ng-container *ngIf="competitionService.competitions.length > 1">
+    <ion-list>
+      <ion-item>
+        <ion-label class="text-primary">{{"Competition" | translate}}:</ion-label>
+        <ion-select
+                [(ngModel)]="selectedCompetition"
+                (ngModelChange)="filterStandingsByCompetition(selectedCompetition)"
+        >
+          <ion-option
+                  *ngFor="let competition of competitionService.competitions"
+                  [value]="competition"
+          >{{competition}}</ion-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <div text-center class="">
+    <img class='main-logo-small' [src]="logoSource"/>
+  </div>
+
+  <ion-list text-wrap>
+
+    <ion-item *ngIf="selectedCompetition">
+      <p text-center class="text-primary"><strong>{{'Standings of' | translate}}</strong></p>
+      <h2 text-center class="text-primary"><strong>"{{selectedCompetition}}"</strong></h2>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-grid *ngIf="selectedCompetition">
+
+        <ion-grid text-center>
+
+          <ion-row>
+            <ion-col><strong class="text-primary">{{"Team" | translate}}</strong></ion-col>
+            <ion-col><strong class="text-primary">{{"Score" | translate}}</strong></ion-col>
+          </ion-row>
+          <ion-row *ngFor="let standing of competitionStandings">
+            <ion-col>{{standing.team}}</ion-col>
+            <ion-col>{{standing.points}}</ion-col>
+          </ion-row>
+
+        </ion-grid>
+      </ion-grid>
+
+      <ng-container *ngIf="!selectedCompetition">
+        <ion-card>
+          <ion-card-content>
+            <p class="text-primary">{{'Select a competition to see the standings table' | translate}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ng-container>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

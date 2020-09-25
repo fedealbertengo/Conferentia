@@ -1,0 +1,43 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Title</title>-->
+<!--<script src="assets/js/jspdf.debug.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<ion-header>
+    <header-bar [navCtrl]="navCtrl" [pageTitle]="'Location Maps'"></header-bar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <!--<button color="dark" *ngIf="mapas" ion-button block id="boton-filtro-tipoAct" (click)="abrirMenuMapasFiltro()">-->
+    <!--Elegí el mapa que deseás ver...-->
+    <!--</button>-->
+    <!--<pdf-viewer [src]="mapaUrl" [page]="page" [original-size]="false" style="display: block;"></pdf-viewer>-->
+    <!--<iframe *ngIf="mapaUrl" [src]="mapaUrl" width="100%" height="100%" frameborder="0" ></iframe>-->
+
+    <ion-card>
+        <ion-item text-center>
+            {{'Tap to download the desired map from the list' | translate}}
+        </ion-item>
+    </ion-card>
+
+    <button color="dark" ion-button block (click)="accessMapLink()">
+        UTN FRSF
+    </button>
+
+    <!--<button color="dark" ion-button block onClick="window.location.href='https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZXA2eFpjZmxSb2hMNGhjM2c/root/content'">-->
+    <!--Carpa de Meriendas-->
+    <!--</button>-->
+    <!--<button color="dark" ion-button block onClick="window.location.href='https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL2IvcyFBbmZJTUNncTlycE5oZXA3WmdxWUxzMkRWTU1BMFE/root/content'">-->
+    <!--Instalaciones Predio UNL-ATE-->
+    <!--</button>-->
+
+</ion-content>

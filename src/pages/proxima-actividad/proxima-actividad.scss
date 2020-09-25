@@ -1,0 +1,49 @@
+page-proxima-actividad {
+
+  ion-label{
+    h2,h3 {
+      white-space: normal;
+      text-align: justify;
+    }
+  }
+
+  ion-item{
+
+    h2, .h2{
+      white-space: normal;
+    }
+
+    p{
+      margin-top: 0px;
+      color: #000000;
+      white-space: normal;
+      text-align: justify;
+    }
+
+    &.actividad-card-info {
+      padding-left: 0;
+      font-size: 1.4rem;
+
+      &.item-block .item-inner {
+        padding-right: 0;
+      }
+
+      .label-md,
+      .label-wp,
+      .label-ios{
+        margin: 5px 0px 5px 0;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin-top: 0px;
+        margin-bottom: 0px;
+
+        li {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="button-bar">
+
+    <button *ngIf="buttonBarEnabledElements['facebook']" id="botonFacebook" ion-button clear color="facebook" onClick="window.open('https://www.facebook.com/pg/enief2019/', '_system', 'location=yes'); return false;">
+        <i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['instagram']" id="botonInstagram" ion-button clear color="instagram" onClick="window.open('https://www.instagram.com/enief2019/', '_system', 'location=yes'); return false;">
+        <i class="fa fa-2x fa-instagram" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['whatsApp']" id="botonWhatsapp" ion-button clear color="whatsapp" (click)="abrirWhatsapp('grupo')">
+        <i class="fa fa-2x fa-whatsapp" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['twitter']" id="botonTwitter" ion-button clear color="twitter" onClick="window.open('https://twitter.com/enief2019', '_system', 'location=yes'); return false;">
+        <i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['website']" ion-button id="botonSitio" clear color="whatsapp" onClick="window.open('https://enief2019.amcaonline.org.ar', '_system', 'location=yes'); return false;">
+        <i class="fa fa-2x fa-link" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['generalSurvey']" ion-button id="botonEncuesta" clear color="survey" onClick="window.open('https://goo.gl/forms/SdA0wgXo5CEAgYqp1', '_system', 'location=yes'); return false;">
+        <i class="fa fa-2x fa-file-text-o" aria-hidden="true"></i>
+    </button>
+
+    <button *ngIf="buttonBarEnabledElements['standings']" ion-button id="botonPodio" clear color="standings" (click)="goToCompetitions()">
+        <i class="fa fa-2x fa-trophy" aria-hidden="true"></i>
+    </button>
+
+</div>

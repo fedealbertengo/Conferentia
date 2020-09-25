@@ -1,0 +1,63 @@
+<ion-header>
+  <header-bar [navCtrl]="navCtrl" [pageTitle]="'Schedule'"></header-bar>
+
+  <form id="cronograma-searchbar">
+    <ion-searchbar name="search" [(ngModel)]="searchKey" [placeholder]="('Search' | translate) + '...'" (ionInput)="onInput($event)"></ion-searchbar>
+  </form>
+
+  <div text-center class="container-fluid">
+    <ng-container *ngFor="let dia of arrayDias">
+      <button [ngStyle]="{'width': calculatedButtonWidth}" ion-button>{{dia.numero}}</button>
+    </ng-container>
+  </div>
+
+  <div class="filter-buttons">
+    <button ion-button small color="danger" id="boton-x" (click)="borrarTodosLosFiltros()">
+      X
+    </button>
+    <button ion-button small color="dark" id="boton-filtro-dia" (click)="abrirMenuFiltro()">
+      {{'Day' | translate}}
+    </button>
+
+    <button ion-button small color="dark" id="boton-filtro-actividad" (click)="abrirMenuFiltroTipoActividad()">
+    {{'Activity' | translate}}
+    </button>
+
+    <!--<button ion-button small color="dark" id="boton-filtro-area-tematica" (click)="abrirMenuFiltroAreaTematica()">-->
+      <!--Pilar-->
+    <!--</button>-->
+
+    <button ion-button small color="dark" id="boton-filtro-tematica" (click)="abrirFiltroSede()">
+      {{'Room' | translate}}
+    </button>
+
+    <button ion-button small color="dark" id="boton-filtro-favoritos" (click)="cambiarVistaCompleta()">
+      {{(vistaCompleta) ? ('Favorites' | translate) : ('Complete' | translate)}}
+    </button>
+  </div>
+
+</ion-header>
+
+<ion-content padding id="cronogramaPage">
+
+  <ng-container id="cronograma-list" margin-top>
+    <ion-list [virtualScroll]="getTodasActividades()" [class.hide]="!vistaCompleta">
+      <ion-item *virtualItem="let actividad">
+        <ion-item-divider *ngIf="esPrimerActividadDia(actividad)" color="light">{{ mostrarFechaActual(actividad) }}</ion-item-divider>
+        <card-actividad [actividad]="actividad" [fullSize]="false" [showFavorite]="false"></card-actividad>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <div id="favoritos" *ngIf="!vistaCompleta">
+    <ion-item-divider *ngIf="getFavoritos() && getFavoritos().length" color="light">
+      Favoritos
+    </ion-item-divider>
+    <ion-list>
+      <div *ngFor="let actividad of getFavoritos()" class="actividad-card">
+        <card-actividad [actividad]="actividad" [fullSize]="false"></card-actividad>
+      </div>
+    </ion-list>
+  </div>
+
+</ion-content>
