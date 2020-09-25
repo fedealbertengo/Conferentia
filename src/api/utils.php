@@ -1,32 +1,43 @@
 <?php
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\BeforeValidException;
+use Firebase\JWT\ExpiredException;
+require_once './JWT/SignatureInvalidException.php';
+require_once './JWT/BeforeValidException.php';
+require_once './JWT/ExpiredException.php';
+require_once './JWT/JWT.php';
+
+define('TIEMPO_DURACION_TOKEN', 60*60);
+define('JWT_KEY', 'conferentia');
+
 define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 define("MYSQL_CONN_ERROR", "Unable to connect to database.");
 mysqli_report(MYSQLI_REPORT_STRICT);
 
-//define('DB_ENVIRONMENT', 'dev');
-define('DB_ENVIRONMENT', 'staging');
-//define('DB_ENVIRONMENT', 'production');
+define('DB_ENVIRONMENT', 'dev');
 
 if(DB_ENVIRONMENT == 'dev'){
-	define('DB_NAME', 'mecom_main');
-	define('DB_USER', 'root');
+	define('DB_NAME', 'conferentia');
+	define('DB_USER', '');
 	define('DB_PASSWORD', '');
 }
 if(DB_ENVIRONMENT == 'staging'){
-	define('DB_NAME', 'mecom_main');
-	define('DB_USER', 'mecom_admin');
-	define('DB_PASSWORD', 'a9MKi%!fZe%m');
+	define('DB_NAME', 'conferentia');
+	define('DB_USER', '');
+	define('DB_PASSWORD', '');
 }
 if(DB_ENVIRONMENT == 'production'){
-	define('DB_NAME', 'mecom_main');
-	define('DB_USER', 'conferentia');
+	define('DB_NAME', 'conferentia');
+	define('DB_USER', '');
 	define('DB_PASSWORD', '');
 }
 
 header('Content-Type: application/json');
 header('Content-Type: text/html; charset=UTF-8');
-//header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, origin, Access-Control-Allow-Origin, Authorization, X-Requested-With');
 
@@ -41,6 +52,56 @@ if ((isset($_POST["action"]) && !empty($_POST["action"]))) {
 
 if((isset($_GET["action"]) && !empty($_GET["action"]))){
 	$action = $_GET["action"];
+}
+
+if(!(isset($action) && !empty($action) && $action == 'getUser') && !(isset($_GET['command']) && !empty($_GET['command']) && $_GET['command'] == 'getActividadesAsignadasUsuario')){
+	if(isset($_GET['jwt']) && !empty($_GET['jwt']) && ($_GET['jwt'] != 'undefined')){
+		try{
+			$jwt = $_GET['jwt'];
+			$decoded = JWT::decode($jwt, JWT_KEY, array('HS256'));
+		}
+		catch(SignatureInvalidException $e){
+			echo(json_encode('La validación del token ha fallado'));
+			exit();
+		}
+		catch(ExpiredException $e){
+			
+		}
+	}
+	else{
+		echo(json_encode('No existe token JWT'));
+		exit();
+	}
+}
+
+function generarJWT(){
+	$jwt = null;
+	if(isset($_GET['jwt'])){
+		try{
+			$jwt = $_GET['jwt'];
+			$decoded = JWT::decode($jwt, JWT_KEY, array('HS256'));
+		}
+		catch(SignatureInvalidException $e){
+			exit();
+		}
+		catch(ExpiredException $e){
+			$time = time();
+			$token = array(
+				'iat' => $time,
+				'exp' => $time + TIEMPO_DURACION_TOKEN
+			);
+			$jwt = JWT::encode($token, JWT_KEY);
+		}
+	}
+	else{
+		$time = time();
+		$token = array(
+			'iat' => $time,
+			'exp' => $time + TIEMPO_DURACION_TOKEN
+		);
+		$jwt = JWT::encode($token, JWT_KEY);
+	}
+	return $jwt;
 }
 
 // Connect function for database access

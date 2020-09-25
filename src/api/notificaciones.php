@@ -121,8 +121,8 @@
 		$data = null;
 	}
 	
-	$apiId = "2c71823c-8666-4288-8655-b537e44d4a69";
-	$authKey = "MTQ0ODg3YTMtMTg3ZS00MmYyLTgyODktZGQ5NjhlNGYyMTU5";
+	$apiId = "";
+	$authKey = "";
 	
 	switch($accion){
 		case "leer":

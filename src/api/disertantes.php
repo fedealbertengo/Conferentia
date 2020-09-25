@@ -17,13 +17,27 @@ if($action == 'getDisertantes'){
 function getTimestamp(){
 	$json = file_get_contents('./data-sources/disertantes.json');
 	$object = json_decode($json);
-	echo json_encode($object->timestamp);
+	$jwt = generarJWT();
+	
+	$respuesta = array(
+		"JWT" => $jwt,
+		"data" => $object->timestamp
+	);
+	
+	echo json_encode($respuesta);
 }
 
 function getDisertantes(){
 	$json = file_get_contents('./data-sources/disertantes.json');
 	$object = json_decode($json);
-	echo json_encode($object->listaDisertantes);
+	$jwt = generarJWT();
+	
+	$respuesta = array(
+		"JWT" => $jwt,
+		"data" => $object->listaDisertantes
+	);
+	
+	echo json_encode($respuesta);
 }
 
 ?>

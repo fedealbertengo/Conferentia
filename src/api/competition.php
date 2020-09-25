@@ -50,4 +50,11 @@ if($action == "getData"){
 	$return['standings']= $standings;
 }
 
-echo(json_encode($return));
+$jwt = generarJWT();
+
+$respuesta = array(
+	"JWT" => $jwt,
+	"data" => $return
+);
+
+echo json_encode($respuesta);

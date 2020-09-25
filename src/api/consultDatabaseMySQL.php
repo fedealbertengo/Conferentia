@@ -103,24 +103,42 @@ if(true) {
 
 	if ( $rta != "No se han podido capturar los datos" && $rta != "No se ha podido conectar con la base de datos" && $rta != null && $rta != "No hay resultados" ) {
 		if ( empty( $rta ) ) {
-			echo json_encode( "No hay resultados" );
+			$jwt = generarJWT();
+			$respuesta = array(
+				"JWT" => $jwt,
+				"data" => "No hay resultados"
+			);
+			echo json_encode( $respuesta );
 		} else {
 			$cantFilas = count( $rta );
-			echo( "[" );
+			$return = "[";
 			foreach ( $rta as &$fila ) {
 				if ( $fila != null ) {
-					echo( $fila );
+					$return .= $fila;
 					if ( $i < $cantFilas - 1 ) {
-						echo( "," );
+						$return .= ",";
 					}
 				}
 				$i += 1;
 			}
-			echo( "]" );
+			$return .= "]";
+			$jwt = generarJWT();
+	
+			$respuesta = array(
+				"JWT" => $jwt,
+				"data" => json_decode($return)
+			);
+			
+			echo json_encode($respuesta);
 		}
 	} else {
 		if ( $rta != null ) {
-			echo json_encode( $rta );
+			$jwt = generarJWT();
+			$respuesta = array(
+				"JWT" => $jwt,
+				"data" => $rta
+			);
+			echo json_encode( $respuesta );
 		}
 	}
 }

@@ -17,13 +17,27 @@ if($action == 'getActividades'){
 function getTimestamp(){
 	$json = file_get_contents('./data-sources/actividades.json');
 	$object = json_decode($json);
-	echo json_encode($object->timestamp);
+	$jwt = generarJWT();
+	
+	$respuesta = array(
+		"JWT" => $jwt,
+		"data" => $object->timestamp
+	);
+	
+	echo json_encode($respuesta);
 }
 
 function getActividades(){
 	$json = file_get_contents('./data-sources/actividades.json');
 	$object = json_decode($json);
-	echo json_encode($object->listaActividades);
+	$jwt = generarJWT();
+	
+	$respuesta = array(
+		"JWT" => $jwt,
+		"data" => $object->listaActividades
+	);
+	
+	echo json_encode($respuesta);
 }
 
 ?>
