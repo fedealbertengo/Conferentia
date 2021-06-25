@@ -7,7 +7,7 @@ export class GlobalService{
     //public static _dataSourceLocation: string = 'http://localhost/conferentia/';
     //public static _dataSourceLocation: string = 'http://rolivencia.xyz/mecom/';
 
-    public static _dataSourceLocation: string = 'http://fedealb.net/conferentia/';
+    public static _dataSourceLocation: string = 'http://fedealb.ddns.net:8396/Conferentia/';
 	
     public static _webApiLocation:string = GlobalService._dataSourceLocation + 'api/';
     public static _actividadesSinVistaDetallada = [];
