@@ -274,7 +274,7 @@ export class MyApp {
 
         this.oneSignal.endInit();
 
-        this.oneSignal.getIds().then(ids => {});
+        this.oneSignal.getIds().then(ids => {GlobalService.tokenNotif = ids});
     }
 
     logear(username: string, password: string) {
